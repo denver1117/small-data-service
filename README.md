@@ -21,9 +21,12 @@ request = {
     }
     
 response = {
-    "productId": 1236, 
-    "productName": "ream of paper", 
-    "productPrice": 9.99
+    "statusCode": 200,
+    "body": {
+        "productId": 1236, 
+        "productName": "ream of paper", 
+        "productPrice": 9.99
+        }
     }
 ```
 
