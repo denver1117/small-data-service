@@ -1,0 +1,45 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: 'AWS::Serverless-2016-10-31'
+Description: A simple data server for small data stored in S3.
+Parameters:
+  Bucket:
+    Type: String
+    Default: 'yourBucketName'
+    Description: (Required) The S3 bucket of your CSV file
+    MinLength: 1
+    MaxLength: 50
+    ConstraintDescription: 'Required'
+  Key:
+    Type: String
+    Default: 'pathTo/yourFile.csv'
+    Description: (Required) The S3 key of yor CSV file
+    MinLength: 1
+    MaxLength: 50
+    ConstraintDescription: 'Required'
+  IdCol:
+    Type: String
+    Default: 'yourIdColName'
+    Description: (Required) The name of your ID column. Must be one of the column names in the CSV file
+    MinLength: 1
+    MaxLength: 50
+    ConstraintDescription: 'Required'
+  Delimiter:
+    Type: String
+    Default: ','
+    Description: (Optional) Custom CSV delimiter. Defaults to comma separated
+    MinLength: 1
+    MaxLength: 50
+Resources:
+  smalldataservice:
+    Type: 'AWS::Serverless::Function'
+    Properties:
+      Handler: lambda_function.lambda_handler
+      Runtime: python3.7
+      CodeUri: 's3://small-data-service/code/function.zip'
+      Description: A simple data server for small data stored in S3.
+      Environment:
+        Variables:
+          BUCKET: !Ref Bucket
+          KEY: !Ref Key
+          ID_COL: !Ref IdCol
+          DELIMITER: !Ref Delimiter
