@@ -36,7 +36,7 @@ is [here](https://serverlessrepo.aws.amazon.com/applications/arn:aws:serverlessr
 
 ### Use Cases
 The intended use case of `small-data-service` is to provide a simple way to serve single record requests to CSV data 
-store in S3 with no infrastructure to manage. Where traditional alternatives would be to store this data in a relational data store (`Amazon RDS`), a document store (`Amazon DocumentDB`, `Amazon Elasticsearch Service`, `Amazon DynamoDB`) or in memory on one or more virtual machines (`Amazon EC2`, `Amazon EKS`), these cost time and money to setup and manage. This is often too much overhead for very simple data that is small in size. 
+stored in S3 with no infrastructure to manage. Where traditional alternatives would be to store this data in a relational data store (`Amazon RDS`), a document store (`Amazon DocumentDB`, `Amazon Elasticsearch Service`, `Amazon DynamoDB`) or in memory on one or more virtual machines (`Amazon EC2`, `Amazon EKS`), these cost time and money to setup and manage. This is often too much overhead for very simple data that is small in size. 
 
 Here are some use cases that `small-data-service` was designed with in mind:
 
